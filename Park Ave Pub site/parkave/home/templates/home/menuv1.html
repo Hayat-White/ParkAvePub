@@ -1,0 +1,117 @@
+<!-- home/templates/home/menuv1.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Park Ave Pub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        header {
+            background-color: #CDA142;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            flex-grow: 1;
+        }
+        body {
+            margin: 0;
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .section {
+            height:100vh;
+            width:100vw;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
+        .section1 {
+            background-image: url("{% static 'images/menu_main.jpg' %}");
+            background-color: #D6D1CD;
+            margin-top: 0px;
+        }
+        .section2 {
+            background-image: url("{% static 'images/menu_kids.jpg' %}");
+            background-color: #E2D5CF;
+            margin-top: 0px;
+        }
+        .section3 {
+            background-image: url("{% static 'images/menu_happyhour.jpg' %}");
+            background-color: #DCD5CD;
+            margin-top: 0px;
+        }
+        .section4 {
+            background-image: url("{% static 'images/menu_cocktail_summer.jpg' %}");
+            background-color: #E4E6E5;
+            margin-top: 0px;
+        }
+        .button-container {
+            text-align: center;
+            top: 20px;
+            width: 100%;
+            z-index: 1000;
+            background-color: #D6D1CD;
+        }
+        .button {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 15px;
+        }
+        .social-icons {
+            margin-top: 10px;
+            text-align: center;
+            position: absolute;
+            right: 20px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Menu</h1>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/parkavepub/?hl=en" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.doordash.com/store/park-avenue-pub-chico-25225189/" target="_blank">
+                <i class="fas fa-utensils"></i>
+            </a>
+        </div>
+    </header>
+        <div class="button-container">
+        <a href="{% url 'home' %}" class="button">Home</a>
+        <a href="{% url 'menu' %}" class="button">Menu</a>
+        <a href="{% url 'about' %}" class="button">About Us & Hours</a>
+        <a href="{% url 'contact' %}" class="button">Contact Us</a>
+        </div>
+    <div class="section section1"></div>
+    <div class="section section2"></div>
+    <div class="section section3"></div>
+    <div class="section section4"></div>
+    
+</body>
+</html>

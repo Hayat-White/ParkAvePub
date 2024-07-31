@@ -1,0 +1,400 @@
+<!-- home/templates/home/menu.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Park Ave Pub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        header, footer {
+            background-color: #CDA142;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        header h1, footer h1 {
+            flex-grow: 1;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .menu-section h2 {
+            color: #CDA142;
+            border-bottom: 2px solid #CDA142;
+            display: inline-block;
+            margin-bottom: 10px;
+
+        }
+        .menu-item {
+            margin: 10px 0;
+
+        }
+        .menu-item h3 {
+            margin: 5px 0;
+            color: #000;
+        }
+        .menu-item p {
+            
+            margin: 0;
+            color: #555;
+            align-items: center;
+        }
+        .menu-item p strong {
+            font-weight: bold;
+            color: #000;
+        }
+        .button-container {
+            text-align: center;
+            position: relative;
+            margin-top: 20px;
+            width: 100%;
+            z-index: 1000;
+            
+        }
+        .button {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 15px;
+            z-index: 2;
+            position: relative;
+        }
+        .background-top-left,
+        .background-top-right,
+        .background-bottom-left,
+        .background-bottom-right {
+            width: 100%; /* Adjust width as needed */
+            height: 100%;
+            background-size: auto;
+            background-repeat: no-repeat;
+            z-index: 0;
+            display:none;
+        }
+
+        .background-top-left {
+            background-position: left;
+            position: absolute;
+            top: 0;
+            background-image: url('{% static "images/logo_non_burger.png" %}');
+        }
+
+        .background-top-right {
+            background-position: right;
+            position: absolute;
+            top: 0;
+            background-image: url('{% static "images/logo_non_burger.png" %}');
+        }
+        .background-bottom-left{
+            background-position: left;
+            position: absolute;
+            background-image: url('{% static "images/logo_burger.png" %}');
+        }
+        .background-bottom-right{
+            background-position: right;
+            position: absolute;
+            background-image: url('{% static "images/logo_burger.png" %}');
+        }
+        .social-icons {
+            margin-top: 10px;
+            text-align: center;
+            position: absolute;
+            right: 20px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        @media screen and (min-width: 1000px) and (min-height: 700px) {
+            .background-top-left,
+            .background-top-right,
+            .background-bottom-left,
+            .background-bottom-right {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Menu</h1>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/parkavepubchico" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/parkavepub/?hl=en" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.doordash.com/store/park-avenue-pub-chico-25225189/" target="_blank">
+                <i class="fas fa-utensils"></i>
+            </a>
+        </div>
+    </header>
+    <div class="button-container">
+        
+        <a href="{% url 'home' %}" class="button">Home</a>
+        <a href="{% url 'menu' %}" class="button">Menu</a>
+        <a href="{% url 'about' %}" class="button">About Us & Hours</a>
+        <a href="{% url 'contact' %}" class="button">Contact Us</a>
+    </div>
+    <div class="content">
+        <div class="background-top-left"></div>
+        <div class="background-top-right"></div>
+        <div class="menu-section section">
+            <h2>Burgers</h2>
+            <p>Lettuce, Pickles, Onions & Tomato on Request.</p>
+            <div class="menu-item">
+                <h3>The Pub Burger <strong>$14</strong></h3>
+                <p>Served with our famous smoked aioli Add Cheese +$1 </p>
+                <p></p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>The Spicy <strong>$17</strong></h3>
+                <p>Ghost pepper jack, grilled jalapenos, roasted jalapeno aioli</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>The Cherry Bourbon <strong>$17</strong></h3>
+                <p>Cheddar, bacon, caramelized onion, cherry bourbon sauce</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>The Rodeo <strong>$17</strong></h3>
+                <p>BBQ sauce, onion rings, bacon, American cheese</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Farm Burger <strong>$17</strong></h3>
+                <p>Ciabatta bun lathered with jalapeno basil aioli, bacon jam, goat cheese, arugula, and tomato</p>
+                
+            </div>
+            <p>Extras: Bacon +$2, Avocado +$2, Onion rings +$2, Caramelized onions +$1, Sub for Impossible+$2</p>
+        </div>
+        <div class="menu-section section">
+            <h2>Pub Favorites</h2>
+            <div class="menu-item">
+                <h3>The Philly <strong>$17</strong></h3>
+                <p>Hoagie roll with marinated seasoned steak, jalapeno basil aioli, bell peppers, onions, mushrooms, and pepper jack cheese</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>B.L.T.A. <strong>$14</strong></h3>
+                <p>Toasted sourdough, bacon, lettuce, tomato, avocado aioli</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Flaming Chicken <strong>$17</strong></h3>
+                <p>Fried chicken tossed in our secret house made hot sauce, with onion fritz, arugula, goat cheese, and tomato, all on a ciabatta bun lathered with jalapeno basil aioli</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>California Chicken Sandwich <strong>$17</strong></h3>
+                <p>Grilled chicken breast, pepper jack cheese, smoky aioli</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Chicken Tenders <strong>$14</strong></h3>
+                <p>Four tenders and choice of dipping sauce</p>
+               
+            </div>
+            <div class="menu-item">
+                <h3>Grilled Cheese <strong>$16</strong></h3>
+                <p>Pepper jack cheese and caramelized onions on sourdough with a parmesan crust. Served with soup of the day or choice of side</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Loaded Buffalo Bites <strong>$16</strong></h3>
+                <p>Tater tots topped with crispy chicken bites coated in buffalo sauce with bleu cheese & drizzled ranch on top</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Wings</h3>
+                <p>Choice of sauce: Hot, Mild, Garlic Parmesan, Cherry Bourbon, BBQ, Honey Sriracha, Spicy Truffle</p>
+                <p>Half Order<strong> $12 </strong>/ Full <strong>$22</strong></p>
+            </div>
+        </div>
+        <div class="menu-section section">
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <h3>Basket of Fries <strong>$9</strong></h3>
+                <p> Sweet potato fries <strong>+$1</strong> or Make Garlic Parmesan <strong>+$3</strong></p>
+            </div>
+            <div class="menu-item">
+                <h3>Basket of Tots <strong>$9</strong></h3>
+                <p> Make Garlic Parmesan <strong>+$3</strong></p>
+            </div>
+            <div class="menu-item">
+                <h3>Fried Green Beans <strong> $10</strong></h3>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Onion Rings <strong>$9</strong></h3>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Spicy Cauliflower Bites <strong>$10</strong></h3>
+                
+            </div>
+        </div>
+        <div class="menu-section section">
+            <h2>Salads & Soup</h2>
+            <div class="menu-item">
+                <h3>Seasonal <strong>$9</strong></h3>
+                <p>Rotating greens, vegetables, shredded cheese, croutons, Seasonal dressing</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Caesar <strong>$9</strong></h3>
+                <p>Romaine, parmesan, croutons, tossed in caesar dressing</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Crispy Chicken <strong>$14</strong></h3>
+                <p>Romaine, tomato, carrot, cucumber, shredded cheese, bacon, tossed in spicy ranch dressing</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Soup of the Day</h3>
+                <p>Bowl <strong>$10</strong>, Cup <strong>$5</strong> (Make it a bread bowl +$3)</p>
+            </div>
+        </div>
+        <div class="menu-section section">
+            <h2>Kids Menu</h2>
+            <div class="menu-item">
+                <h3>Chicken Tenders <strong>$8</strong></h3>
+                <p>Two chicken tenders served with the choice of either tater tots, hand-cut fries, or onion rings</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Grilled Cheese <strong>$7</strong></h3>
+                <p>Grilled cheese made with cheddar cheese and served with the choice of hand-cut fries, tater tots, or onion rings</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Mini Burgers <strong>$8</strong></h3>
+                <p>Two mini sliders with cheddar and ketchup served with either fries, onion rings, or tater tots</p>
+                
+            </div>
+        </div>
+        <div class="menu-section section">
+            <h2>Seasonal Cocktail Menu </h2>
+            <div class="menu-item">
+                <h3>Watermelon Mint Mojito <strong>$13</strong></h3>
+                <p>Watermelon, rum, Fresh mint, Fresh lime juice, club soda</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Blackberry Bliss <strong>$13</strong></h3>
+                <p>Rum, blackberries, Fresh Lemon Juice, simple syrup</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Raspberry Lemoncello <strong>$13</strong></h3>
+                <p>Dried Raspberries, vodka, lemoncello, club soda</p>
+            </div>
+            <div class="menu-item">
+                <h3>Paloma Rose <strong>$13</strong></h3>
+                <p>Rose simple, lime, tequila, Fresh grapefruit, club soda</p>
+                
+            </div>
+        </div>
+        <div class="menu-section section">
+            <h2>Happy Hour Menu</h2>
+            <div class="menu-item">
+                <h3>Happy Hour Fries <strong>$6</strong></h3>
+                <p>Served with our House Sauce</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Happy Hour Tater Tots <strong>$6</strong></h3>
+                <p>Served with our House Sauce</p>
+                
+            </div>
+            <div class="background-bottom-left"></div>
+            <div class="background-bottom-right"></div>
+            <div class="menu-item">
+                <h3>Sweet Potato Fries <strong>$7</strong></h3>
+                <p>Served with our Garlic Aioli</p>
+            </div>
+            <div class="menu-item">
+                <h3>Spicy Califlower Bites <strong>$13</strong></h3>
+                <p>Served with Ranch</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Sliders <strong>$7</strong></h3>
+                <p>Two Sliders served with Cheddar Cheese & house sauce on Brioche Buns</p>
+                
+            </div>
+            
+            <div class="menu-item">
+                <h3>Draft Beers <strong>$3</strong></h3>
+                <p>Drafts included are Sierra Nevada & BrewBuilt</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Well Liquor <strong>$4</strong></h3>
+                <p>Non-Craft well Drinks</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Margarita <strong>$5</strong></h3>
+                <p>Fresh lime juice, Agave & Tequila</p>
+                
+            </div>
+            <div class="menu-item">
+                <h3>Seasonal Drink <strong>$7</strong></h3>
+                <p>Any Fresh juice Seasonal Cocktail</p>
+                
+            </div>
+            
+            <div class="menu-item">
+                <h3>Lemon Drop <strong>$5</strong></h3>
+                <p>Fresh Lemon juice, Simple Syrup & Vodka</p>
+                
+            </div>
+            
+        </div>
+    </div>
+    <footer>
+        <h1>Park Ave Pub</h1>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/parkavepubchico" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/parkavepub/?hl=en" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.doordash.com/store/park-avenue-pub-chico-25225189/" target="_blank">
+                <i class="fas fa-utensils"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
