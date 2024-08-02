@@ -1,4 +1,3 @@
-<!-- home/templates/home/contact.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,6 @@
             margin: 0;
         }
         body {
-            
             background-size: contain;
             background-position: center 250px;
             background-repeat: no-repeat;
@@ -31,9 +29,9 @@
             margin: 0;
             text-align: center;
         }
-        .button-container{
+        .button-container {
             text-align: center;
-            margin-top:10px;
+            margin-top: 10px;
         }
         .button {
             display: inline-block;
@@ -57,11 +55,58 @@
             font-size: 1.5em;
             text-decoration: none; 
         }
-
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .hours-container {
+            flex-basis: 50%;
+            padding: 20px;
+        }
+        .hours {
+            color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            background-color: #f4f4f4;
+        }
+        .hours h2 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .hours div {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        .image-container {
+            flex-basis: 50%;
+            padding: 20px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .image-container {
+                order: 2;
+                padding-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-     <header>
+    <header>
         <h1>Contact Us</h1>
         <div class="social-icons">
             <a href="https://www.facebook.com/parkavepubchico" target="_blank">
@@ -75,13 +120,58 @@
             </a>
         </div>
     </header>
-        <div class="button-container">
+    <div class="button-container">
         <a href="{% url 'home' %}" class="button">Home</a>
         <a href="{% url 'menu' %}" class="button">Menu</a>
         <a href="{% url 'about' %}" class="button">About Us & Hours</a>
         <a href="{% url 'contact' %}" class="button">Contact Us</a>
+    </div>
+    <div class="content">
+        <div class="hours-container">
+            <div class="hours">
+                <h2>Hours</h2>
+                <div>
+                    <span>SATURDAY</span>
+                    <span>11:30 AM - 10 PM</span>
+                </div>
+                <div>
+                    <span>SUNDAY</span>
+                    <span>11:30 AM - 9 PM</span>
+                </div>
+                <div>
+                    <span>MONDAY</span>
+                    <span>CLOSED</span>
+                </div>
+                <div>
+                    <span>TUESDAY</span>
+                    <span>11:30 AM - 9 PM</span>
+                </div>
+                <div>
+                    <span>WEDNESDAY</span>
+                    <span>11:30 AM - 9 PM</span>
+                </div>
+                <div>
+                    <span>THURSDAY</span>
+                    <span>11:30 AM - 9 PM</span>
+                </div>
+                <div>
+                    <span>FRIDAY</span>
+                    <span>11:30 AM - 10 PM</span>
+                </div>
+            </div>
+            <div class="hours">
+                <h2>Call Us</h2>
+                <div>
+                    <span>(530) 893-3500</span>
+                </div>
+            </div>
         </div>
-    <p>Contact information for Park Ave Pub.</p>
+        <div class="image-container">
+            <a href="https://www.doordash.com/store/park-avenue-pub-chico-25225189/" target="_blank">
+                <img src="{% static 'images/doordash.png' %}" alt="DoorDash Link Image">
+            </a>
+        </div>
+    </div>
     <footer>
         <h1>Park Ave Pub</h1>
         <div class="social-icons">
