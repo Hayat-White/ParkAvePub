@@ -1,5 +1,5 @@
-{% load static %}
 <!-- home/templates/home/index.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
             flex-grow: 1;
             margin: 0;
         }
-        header h1{
+        header h1 {
             font-size: 50px;
             font-family: "Times New Roman", Times, serif;
         }
@@ -36,20 +36,32 @@
             align-items: center;
         }
         .container {
-            display: flex;
+            position: relative;
             justify-content: center;
-            align-items:center;
-            padding: 10px;
+            align-items: center;
+            width: 100%;
+            margin: -100px;
+            z-index: 0;
         }
         .image-block {
-            flex: 1 1 50%;
-            max-width: 500px; /* Set a max-width for the image */
+            max-width: 100%;
             padding: 10px;
         }
         .image-block img {
             width: 100%;
             height: auto;
             border-radius: 10px;
+        }
+        .icon-block {
+            position: absolute;
+            top: 200px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            max-width: 25%; /* Adjust as needed */
+            z-index: 10;
+        }
+        .icon-block img {
+            width: 100%;
+            height: auto;
         }
         .text-block {
             flex: 1 1 50%;
@@ -59,6 +71,7 @@
         }
         .button-container {
             margin-top: 20px;
+            z-index: 10;
         }
         .button {
             display: inline-block;
@@ -85,46 +98,49 @@
         footer {
             position: relative;
         }
-        .slideshow-container {
-            flex: 1 1 50%;
-            max-width: 500px;
-            max-height: 500px;
-            position: relative;
-            margin: auto;
+        .event-calendar {
+            margin-top: 20px;
+            padding: 50px;
+            width: 80%;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .event-calendar h2 {
+            text-align: center;
+            color: #333;
+        }
+        .event-calendar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .event-calendar li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .event-calendar li:last-child {
+            border-bottom: none;
+        }
+        .calendar {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .calendar table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .calendar th, .calendar td {
+            width: 14.28%;
+            border: 1px solid #ddd;
+            text-align: center;
             padding: 10px;
         }
-        .mySlides {
-            display: none;
+        .calendar th {
+            background-color: #f1f1f1;
         }
-        .mySlides img {
-            width: 100%;
-            height: 500px;
-            border-radius: 10px;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
+        .event-date {
+            background-color: #CDA142;
+            color: #fff;
         }
     </style>
 </head>
@@ -146,92 +162,26 @@
     <div class="button-container">
         <a href="{% url 'home' %}" class="button">Home</a>
         <a href="{% url 'menu' %}" class="button">Menu</a>
-        <a href="{% url 'about' %}" class="button">About Us & Hours</a>
-        <a href="{% url 'contact' %}" class="button">Contact Us</a>
+        <a href="{% url 'about' %}" class="button">About Us</a>
+        <a href="{% url 'contact' %}" class="button">Contact Us & Hours</a>
     </div>
     <div class="container">
         <div class="image-block">
-            <img src="{% static 'images/front-of-business.png' %}" alt="Front of Park Ave Pub">
+            <img src="{% static 'images/parkave-front.png' %}" alt="Full View Image">
         </div>
-        <div class="text-block">
-            <p>Park Ave Pub - Under new management! The Pub is focused on making the best customer
-            experience as possible. The Pub does this by making our cocktails with fresh juice, source
-            our kitchen ingredients from local stores and listening to customer feedback! Park Ave Pub
-            frequently checks facebook and review sites to maintain what our community wants and likes!
-            The Pub is a space that caters to groups of all ages and hopes to be the favourite spot to
-            hangout and relax at!
-            </p>
-            
+        <div class="icon-block">
+            <img src="{% static 'images/circular.png' %}" alt="Icon Image">
         </div>
     </div>
-    <div class="container">
-        <div class="image-block">
-            <img src="{% static 'images/inside_pub.jpg' %}" alt="Inside of Park Ave Pub">
-        </div>
-        <div class="text-block">
-            <p>The Pub has had some major redesigns in the front patio. The Pub has new tables for the
-            outside back patio as well! Our new owner Robert is often found inside the Pub or here in town.
-            The new rennovations inside the Pub give a more open feel to the space. Park Ave Pub often has live music
-            and events centered around locals in Chico. The Pub has also made sure to keep up to date with doordash,
-            so delivery is the next best option for great food if staying in is the mood for the day. The Pub has some amazing
-            Bartenders always looking to show off their skills and make drinks anyone will enjoy! Park Ave Pub is also home to
-            some of the best cooks in town that will have you wanting more!
-            </p>
-            
-        </div>
-    </div>
-    <div class="container">
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/BLTA.jpg' %}" style="width:100%">
-                <div class="text">BLTA - A delicious BLT sandwich with avocado</div>
-            </div>
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/cali-chicken.jpg' %}" style="width:100%">
-                <div class="text">California Chicken - Grilled chicken with avocado</div>
-            </div>
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/cherry-bourb.jpg' %}" style="width:100%">
-                <div class="text">Cherry Bourbon - A sweet and tangy cherry bourbon cocktail</div>
-            </div>
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/plain-burger.jpg' %}" style="width:100%">
-                <div class="text">Classic Burger - A classic beef burger with all the fixings</div>
-            </div>
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/rodeo.jpg' %}" style="width:100%">
-                <div class="text">Rodeo Burger - A burger topped with BBQ sauce and onion rings</div>
-            </div>
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/spicy.jpg' %}" style="width:100%">
-                <div class="text">Spicy Burger - A spicy twist on a classic burger</div>
-            </div>
-            <div class="mySlides fade">
-                
-                <img src="{% static 'images/salad.jpg' %}" style="width:100%">
-                <div class="text">Seasonal salad - Currently served with Balsamic vinegret</div>
-            </div>
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <div class="text-block">
-            <p>Discover our menu favourites, crafted with fresh ingredients and love. 
-            From the classic BLTA sandwich to the spicy burger, each dish is a culinary delight. 
-            Enjoy our Cherry Bourbon burger or indulge in our California Chicken sandwich. The Pub also has multiple Seasonal Salads
-            that focus on what is currently growing and refreshing during each season. Whether it is something heavy or light 
-            the pub is certain anyone will enjoy the food. The Pub also has a rotating tap list that features local and national
-            Brewers. Park Ave Pub caters to all tastes and preferences, ensuring a memorable dining experience for everyone.
-            Join us and explore the flavors that makes the Pub a local favourite!</p>
-        </div>
-    </div>
-    <div class="container">
+    <div class="event-calendar">
+        <h2>Upcoming Events</h2>
+        <ul>
+            <li data-event-date="2024-08-10">Guest Bartender - August 10th</li>
+            <li data-event-date="2024-12-25">Christmas Party - December 25th</li>
+            <li data-event-date="2024-10-15">Event 3 - October 15th</li>
+            <!-- Add more events as needed -->
+        </ul>
+        <div class="calendar" id="calendar"></div>
     </div>
     <footer>
         <h1>Park Ave Pub</h1>
@@ -248,23 +198,45 @@
         </div>
     </footer>
     <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
+        document.addEventListener('DOMContentLoaded', function () {
+            const events = [
+                { date: '2024-08-10', name: 'Guest Bartender' },
+                { date: '2024-12-25', name: 'Christmas Party' },
+                { date: '2024-10-15', name: 'Event 3' }
+                // Add more events here
+            ];
+            const calendarElement = document.getElementById('calendar');
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+            const currentYear = currentDate.getFullYear();
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+            function generateCalendar(month, year) {
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const firstDay = new Date(year, month, 1).getDay();
+                let table = '<table><tr>';
+                const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                for (let day of daysOfWeek) {
+                    table += `<th>${day}</th>`;
+                }
+                table += '</tr><tr>';
+                for (let i = 0; i < firstDay; i++) {
+                    table += '<td></td>';
+                }
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const currentDay = new Date(year, month, day);
+                    const event = events.find(e => new Date(e.date).toDateString() === currentDay.toDateString());
+                    const eventClass = event ? 'event-date' : '';
+                    table += `<td class="${eventClass}">${day}</td>`;
+                    if ((day + firstDay) % 7 === 0) {
+                        table += '</tr><tr>';
+                    }
+                }
+                table += '</tr></table>';
+                calendarElement.innerHTML = table;
             }
-            slides[slideIndex-1].style.display = "block";
-        }
+
+            generateCalendar(currentMonth, currentYear);
+        });
     </script>
 </body>
 </html>
