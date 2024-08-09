@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "home\\templates\\home\\home.html",
               "ToolTip": "C:\\Users\\kille\\OneDrive\\Desktop\\Park Ave Pub site\\parkave\\home\\templates\\home\\home.html",
               "RelativeToolTip": "home\\templates\\home\\home.html",
-              "ViewState": "AQIAAMcAAAAAAAAAAAAgwPIAAAAAAAAA",
+              "ViewState": "AQIAANMAAAAAAAAAAAAgwNAAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-07-15T09:58:28.375Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "home\\templates\\home\\contact.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-08-03T03:37:02.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-03T03:37:02.729Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "home\\templates\\home\\menu.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-08-03T03:36:52.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-03T03:36:52.035Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "home\\templates\\home\\about.html",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAACcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-07-15T08:06:49.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-15T08:06:49.175Z"
             }
           ]
         }
